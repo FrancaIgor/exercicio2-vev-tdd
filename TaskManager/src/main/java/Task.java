@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 class Task {
     private String title;
@@ -37,8 +38,16 @@ class Task {
         this.description = description;
     }
 
+    // Método para definir a data de vencimento da tarefa
     public void setDueDate(String dueDate) {
-        this.dueDate = LocalDate.parse(dueDate);
+    	
+        try {
+        	// Converte a String de data em LocalDate
+            this.dueDate = LocalDate.parse(dueDate);
+        } catch (DateTimeParseException e) {
+        	// Lança uma exceção se a conversão falhar
+            throw new IllegalArgumentException("Data de vencimento inválida. Use o formato yyyy-MM-dd.");
+        }
     }
 
     public void setPriority(Priority priority) {
