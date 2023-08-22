@@ -5,7 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 public class ProcessadorBoletosTest {
-    @Test
+    
+	//Testando a soma dos boletos ultrapassa a fatura
+	@Test
     public void testProcessarBoletosFaturaPaga() {
         List<Boleto> boletos = new ArrayList<>();
         boletos.add(new Boleto("001", new Date(), 500.0));
@@ -18,7 +20,8 @@ public class ProcessadorBoletosTest {
 
         assertTrue(fatura.estaPaga());
     }
-
+	
+	//Testando a soma dos boletos nao ultrapassando a fatura
     @Test
     public void testProcessarBoletosFaturaNaoPaga() {
         List<Boleto> boletos = new ArrayList<>();

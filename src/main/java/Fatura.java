@@ -20,11 +20,13 @@ public class Fatura {
 	public void setValorTotal(double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-
+	
+	//Flag para a troca do booleano
 	public void marcarComoPaga() {
         estaPaga = true;
     }
-
+	
+	//Retornando o estado atual da Fatura
     public boolean estaPaga() {
         return estaPaga;
     }
