@@ -1,19 +1,17 @@
 import java.util.List;	
 
 public class ProcessadorBoletos {
-    public static void processarBoletos(List<Boleto> boletos, Fatura fatura) {
+	public static void processarBoletos(List<Boleto> boletos, Fatura fatura) {
         double totalPago = 0.0;
         
-        //Verificando se a fatura pode ser paga
+        // Verificando o total dos boletos
         for (Boleto boleto : boletos) {
             totalPago += boleto.getValorPago();
-            if (totalPago >= fatura.getValorTotal()) {
-                fatura.marcarComoPaga();
-            }
-            //Retorna o estado atual da fatura
-            fatura.estaPaga();
         }
-
         
+        // Se o total pago for maior ou igual ao valor da fatura, marca como paga
+        if (totalPago >= fatura.getValorTotal()) {
+            fatura.marcarComoPaga();
+        }
     }
 }
