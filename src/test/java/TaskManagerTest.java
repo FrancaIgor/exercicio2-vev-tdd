@@ -1,9 +1,14 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 
 import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import functionalTests.Priority;
+import functionalTests.Task;
+import functionalTests.TaskManager;
 
 public class TaskManagerTest {
 
@@ -15,13 +20,14 @@ public class TaskManagerTest {
     }
 
     @Test
-    public void testCreateTask() {
+    public String testCreateTask() {
         Task task = new Task("Task 1", "Description 1", "2023-08-25", Priority.MEDIUM);
         taskManager.createTask(task);
 
         List<Task> tasks = taskManager.getTasks();
         assertEquals(1, tasks.size());
         assertEquals(task, tasks.get(0));
+        return "Tarefa criada com sucesso";
     }
 
     @Test
@@ -57,7 +63,7 @@ public class TaskManagerTest {
 
         List<Task> tasks = taskManager.getTasks();
         assertEquals(2, tasks.size());
-        assertEquals(task2, tasks.get(0));  // Sorted by date and then priority
+        assertEquals(task2, tasks.get(0));  
         assertEquals(task1, tasks.get(1));
     }
 
@@ -71,4 +77,6 @@ public class TaskManagerTest {
         List<Task> tasks = taskManager.getTasks();
         assertEquals(Priority.HIGH, tasks.get(0).getPriority());
     }
+    
+    
 }

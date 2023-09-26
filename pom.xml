@@ -5,4 +5,13 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Task Manager</name>
   <description>Exercicio V&amp;V</description>
+	<dependencies>
+	    <!-- JUnit 5 -->
+	    <dependency>
+	        <groupId>org.junit.jupiter</groupId>
+	        <artifactId>junit-jupiter-api</artifactId>
+	        <version>5.8.1</version>
+	        <scope>test</scope>
+	    </dependency>
+	</dependencies>
 </project>
