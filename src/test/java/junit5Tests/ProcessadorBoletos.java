@@ -1,8 +1,17 @@
+package junit5Tests;
 import java.util.List;	
 
 public class ProcessadorBoletos {
-	public static void processarBoletos(List<Boleto> boletos, Fatura fatura) throws ValorNegativoException, ValorInsuficienteException {
+	public static void processarBoletos(List<Boleto> boletos, Fatura fatura) throws ValorNegativoException, ValorInsuficienteException, FaturaZeradaException {
         double totalPago = 0.0;
+        
+        if (fatura.getValorTotal() < 0) {
+            throw new ValorNegativoException("Valor total da Fatura é negativo. ERRO.");
+        }
+        
+        if (fatura.getValorTotal() == 0) {
+            throw new FaturaZeradaException("Não existe nada para ser pago");
+        }
         
         // Verificando o total dos boletos
         for (Boleto boleto : boletos) {

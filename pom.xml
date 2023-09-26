@@ -4,4 +4,14 @@
   <artifactId>java-example-artifact</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>exercicio2-IgorFranca</name>
+  
+  <dependencies>
+    <!-- JUnit 5 -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.8.1</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
 </project>

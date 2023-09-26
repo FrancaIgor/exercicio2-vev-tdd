@@ -10,7 +10,7 @@ import org.junit.Test;
 public class TabelasDeDecisaoTest {
 	
 	 @Test
-	    public void testeValorNegativo() {
+	    public void testeValorNegativo() throws ValorNegativoException, ValorInsuficienteException {
 	        List<Boleto> boletos = new ArrayList<>();
 	        Fatura fatura = new Fatura(new Date(), -100.0, "Cliente Teste");
 	        ProcessadorBoletos.processarBoletos(boletos, fatura);
@@ -18,7 +18,7 @@ public class TabelasDeDecisaoTest {
 	    }
 
 	    @Test
-	    public void testeValorZero() {
+	    public void testeValorZero() throws ValorNegativoException, ValorInsuficienteException {
 	        List<Boleto> boletos = new ArrayList<>();
 	        Fatura fatura = new Fatura(new Date(), 0.0, "Cliente Teste");
 	        ProcessadorBoletos.processarBoletos(boletos, fatura);
@@ -26,7 +26,7 @@ public class TabelasDeDecisaoTest {
 	    }
 
 	    @Test
-	    public void testeValorPositivoMenor() {
+	    public void testeValorPositivoMenor() throws ValorNegativoException, ValorInsuficienteException {
 	        List<Boleto> boletos = new ArrayList<>();
 	        boletos.add(new Boleto("001", new Date(), 1000.0));
 	        Fatura fatura = new Fatura(new Date(), 1500.0, "Cliente Teste");

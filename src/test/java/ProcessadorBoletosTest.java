@@ -8,7 +8,7 @@ public class ProcessadorBoletosTest {
     
 	//Testando a soma dos boletos ultrapassa a fatura
 	@Test
-    public void testProcessarBoletosFaturaPaga() {
+    public void testProcessarBoletosFaturaPaga() throws ValorNegativoException, ValorInsuficienteException {
         List<Boleto> boletos = new ArrayList<>();
         boletos.add(new Boleto("001", new Date(), 500.0));
         boletos.add(new Boleto("002", new Date(), 400.0));
@@ -23,7 +23,7 @@ public class ProcessadorBoletosTest {
 	
 	//Testando a soma dos boletos nao ultrapassando a fatura
     @Test
-    public void testProcessarBoletosFaturaNaoPaga() {
+    public void testProcessarBoletosFaturaNaoPaga() throws ValorNegativoException, ValorInsuficienteException {
         List<Boleto> boletos = new ArrayList<>();
         boletos.add(new Boleto("001", new Date(), 300.0));
         boletos.add(new Boleto("002", new Date(), 200.0));

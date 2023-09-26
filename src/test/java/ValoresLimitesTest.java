@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class ValoresLimitesTest {
 	@Test
-    public void testeValorLimiteZero() {
+    public void testeValorLimiteZero() throws ValorNegativoException, ValorInsuficienteException {
         List<Boleto> boletos = new ArrayList<>();
         Fatura fatura = new Fatura(new Date(), 0.0, "Cliente Teste");
         ProcessadorBoletos.processarBoletos(boletos, fatura);
@@ -17,7 +17,7 @@ public class ValoresLimitesTest {
     }
 
     @Test
-    public void testeValorLimiteIgual() {
+    public void testeValorLimiteIgual() throws ValorNegativoException, ValorInsuficienteException {
         List<Boleto> boletos = new ArrayList<>();
         boletos.add(new Boleto("001", new Date(), 1500.0));
         Fatura fatura = new Fatura(new Date(), 1500.0, "Cliente Teste");
@@ -26,7 +26,7 @@ public class ValoresLimitesTest {
     }
 
     @Test
-    public void testeValorLimiteMenor() {
+    public void testeValorLimiteMenor() throws ValorNegativoException, ValorInsuficienteException {
         List<Boleto> boletos = new ArrayList<>();
         boletos.add(new Boleto("001", new Date(), 1499.0));
         Fatura fatura = new Fatura(new Date(), 1500.0, "Cliente Teste");
